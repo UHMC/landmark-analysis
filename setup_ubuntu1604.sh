@@ -24,5 +24,5 @@ protoc object_detection/protos/*.proto --python_out=.
 export PYTHONPATH=$PYTHONPATH:$(pwd):$(pwd)/slim
 # run tests
 python object_detection/builders/model_builder_test.py
-# run object_detection_tutorial
-jupyter notebook object_detection/object_detection_tutorial.ipynb
+# run object_detection_tutorial (commented out for only dependency setup)
+#jupyter notebook object_detection/object_detection_tutorial.ipynb
