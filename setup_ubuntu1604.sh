@@ -1,4 +1,6 @@
 #!/bin/bash
+# update before installs
+sudo apt update
 # get pip
 sudo apt install python-pip -y
 # set up python virtual environment
