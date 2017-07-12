@@ -9,11 +9,11 @@ config = {
     'raise_on_warnings': True,
 }
 
-add_image = ("INSERT INTO LandmarkDB "
+add_image = ("INSERT INTO image "
              "(location,exif) "
              "VALUES (%s, %s)")
 
-data_image = ('/srv/test.png', 'NULL')
+data_image = ('/srv/test.png', 'NULL') #Testing adding an entry to the image database
 
 try:
     db = mysql.connector.connect(**config)
@@ -24,9 +24,9 @@ except mysql.connector.Error as err:
         print("Database does not exist")
     else:
         print(err)
-else:
-    db.close()
-cursor = db.cursor()
+
+
+cursor = db.cursor() # Create a cursor for MySQL commands
 cursor.execute(add_image, data_image)
 db.commit()
 cursor.close()
