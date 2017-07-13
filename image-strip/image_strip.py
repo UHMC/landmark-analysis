@@ -5,15 +5,15 @@ config = {
     'user': 'machine',
     'password': 'learning',
     'host': '127.0.0.1',
-    'database': 'LandmarkDB',
+    'database': 'ObjectDB',
     'raise_on_warnings': True,
 }
 
 add_image = ("INSERT INTO image "
-             "(location,exif) "
+             "(path,exif) "
              "VALUES (%s, %s)")
 
-data_image = ('/srv/test.png', 'NULL') #Testing adding an entry to the image database
+data_image = ('/srv/ObjectDB/test.png', 'NULL') #Testing adding an entry to the image database
 
 try:
     db = mysql.connector.connect(**config)
