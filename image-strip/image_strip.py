@@ -1,5 +1,10 @@
 import mysql.connector
 from mysql.connector import errorcode
+import exifread
+import os
+import time
+import jsonpickle
+
 
 config = {
     'user': 'machine',
@@ -13,8 +18,8 @@ add_image = ("INSERT INTO image "
              "(path,exif) "
              "VALUES (%s, %s)")
 
-data_image = ('/srv/ObjectDB/test.png', 'NULL') #Testing adding an entry to the image database
 
+data_image = ('NULL','NULL')
 try:
     db = mysql.connector.connect(**config)
 except mysql.connector.Error as err:
@@ -26,8 +31,19 @@ except mysql.connector.Error as err:
         print(err)
 
 
+os.chdir('/srv/ObjectDB/unprocessed')
 cursor = db.cursor() # Create a cursor for MySQL commands
-cursor.execute(add_image, data_image)
-db.commit()
-cursor.close()
-db.close()
+while(True):
+	files = os.listdir('.')
+	if(files != ''):
+		for x in files:
+			print('Processing file: '+x)
+			f = open(x,'rb')
+			os.system('mv '+x+' ../processed/')
+			exif=jsonpickle.encode(exifread.process_file(f))
+			data_image = ('/srv/ObjectDB/sorted/'+x,exif)
+			cursor.execute( add_image, data_image)
+			db.commit()
+	time.sleep(1)
+	print('Waiting for files...')
+
