@@ -20,6 +20,8 @@ add_image = ("INSERT INTO image "
 
 
 data_image = ('NULL','NULL')
+
+# Connecting to the Database using config
 try:
     db = mysql.connector.connect(**config)
 except mysql.connector.Error as err:
@@ -30,20 +32,22 @@ except mysql.connector.Error as err:
     else:
         print(err)
 
-
+# Changing working directory to unprocessed folder
 os.chdir('/srv/ObjectDB/unprocessed')
 cursor = db.cursor() # Create a cursor for MySQL commands
+
+# Loop forever
 while(True):
-	files = os.listdir('.')
-	if(files != ''):
+	files = os.listdir('.') # Populate list of files
+	if(files != ''): # Only run when folder is not empty
 		for x in files:
-			print('Processing file: '+x)
-			f = open(x,'rb')
-			os.system('mv '+x+' ../processed/')
-			exif=jsonpickle.encode(exifread.process_file(f))
-			data_image = ('/srv/ObjectDB/sorted/'+x,exif)
-			cursor.execute( add_image, data_image)
-			db.commit()
+			print('Processing file: '+x) 
+			f = open(x,'rb') # Open the file 
+			os.system('mv '+x+' ../processed/') # Move file to processed folder
+			exif=jsonpickle.encode(exifread.process_file(f)) # Extract EXIF into JSON
+			data_image = ('/srv/ObjectDB/sorted/'+x,exif) # Information to be added to the database
+			cursor.execute( add_image, data_image) # Add item to the database
+			db.commit() # Commit changes to database
 	time.sleep(1)
 	print('Waiting for files...')
 
