@@ -44,14 +44,14 @@ while(True):
 		for x in files:
 			print('Processing file: '+x) 
 			f = open(x,'rb') # Open the file 
-			uuid = uuid.uuid4().hex
-			os.system('mv '+x+' ../processed/'+uuid) # Move file to processed folder
+			filename = uuid.uuid4().hex
+			os.system('mv '+x+' ../processed/'+filename) # Move file to processed folder
 			exif=jsonpickle.encode(exifread.process_file(f)) # Extract EXIF into JSON
 			os.chdir('/srv/ObjectDB/EXIF')
-			with open(uuid+".json", 'wb') as output:
+			with open(filename+".json", 'wb') as output:
 				output.write(bytes(exif,'UTF-8'))
 				os.chdir('/srv/ObjectDB/unprocessed')
-			data_image = ('/srv/ObjectDB/sorted/'+x,'/srv/ObjectDB/EXIF/'+uuid+'.json') # Information to be added to the database
+			data_image = ('/srv/ObjectDB/sorted/'+x,'/srv/ObjectDB/EXIF/'+filename+'.json') # Information to be added to the database
 			cursor.execute( add_image, data_image) # Add item to the database
 			db.commit() # Commit changes to database
 	time.sleep(1)
