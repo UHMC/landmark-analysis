@@ -4,7 +4,7 @@ sudo apt update
 # get pip
 sudo apt install python-pip -y
 # set up python virtual environment
-pip install virtualenv
+sudo pip install virtualenv
 virtualenv .
 source bin/activate
 # install python dependencies
