@@ -14,6 +14,9 @@ pip install lxml
 pip install jupyter
 pip install matplotlib
 pip install ipython
+pip install mysql-connector==2.1.4
+pip install jsonpickle
+pip install exifread
 # get git
 sudo apt install git -y
 # clone tensorflow/models repository
