@@ -45,9 +45,9 @@ while(True):
 			f = open(x,'rb') # Open the file 
 			os.system('mv '+x+' ../processed/') # Move file to processed folder
 			exif=jsonpickle.encode(exifread.process_file(f)) # Extract EXIF into JSON
+			os.chdir('/srv/ObjectDB/EXIF')
 			with open(x+".json", 'wb') as output:
-				os.chdir('/srv/ObjectDB/EXIF')
-				output.write(exif)
+				output.write(bytes(exif,'UTF-8'))
 				os.chdir('/srv/ObjectDB/unprocessed')
 			data_image = ('/srv/ObjectDB/sorted/'+x,'/srv/ObjectDB/EXIF/'+x+'.json') # Information to be added to the database
 			cursor.execute( add_image, data_image) # Add item to the database
