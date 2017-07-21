@@ -51,7 +51,8 @@ while(True):
 			with open(filename+".json", 'wb') as output:
 				output.write(bytes(exif,'UTF-8'))
 				os.chdir('/srv/ObjectDB/unprocessed')
-			data_image = ('/srv/ObjectDB/sorted/'+x,'/srv/ObjectDB/EXIF/'+filename+'.json') # Information to be added to the database
+			data_image = ('/srv/ObjectDB/sorted/'+filename,'/srv/ObjectDB/EXIF/'+filename+'.json') # Information to be added to the 
+database
 			cursor.execute( add_image, data_image) # Add item to the database
 			db.commit() # Commit changes to database
 	time.sleep(1)
