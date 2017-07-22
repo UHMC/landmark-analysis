@@ -47,3 +47,12 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+
+# Setup script outputs
+bin/
+include/
+lib/
+local/
+models/
+pip-selfcheck.json
+share/
