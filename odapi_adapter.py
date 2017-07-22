@@ -14,10 +14,10 @@ from matplotlib import pyplot as plt
 
 # Environment setup
 # This is needed to display the images.
-#% matplotlib
-#inline
+# % matplotlib
+# inline
 # This is needed since the notebook is stored in the object_detection folder.
-#sys.path.append("..")
+# sys.path.append("..")
 
 # Object Detection Imports
 from utils import label_map_util
@@ -66,17 +66,18 @@ def load_image_into_numpy_array(image):
     return np.array(image.getdata()).reshape(
         (im_height, im_width, 3)).astype(np.uint8)
 
+
 def get_objects(image_path):
     # Detection
     # For the sake of simplicity we will use only 2 images:
     # image1.jpg
     # image2.jpg
     # If you want to test the code with your images, just add path to the images to the TEST_IMAGE_PATHS.
-    #PATH_TO_TEST_IMAGES_DIR = 'test_images'
-    #TEST_IMAGE_PATHS = [os.path.join(PATH_TO_TEST_IMAGES_DIR, 'image{}.jpg'.format(i)) for i in range(1, 3)]
+    # PATH_TO_TEST_IMAGES_DIR = 'test_images'
+    # TEST_IMAGE_PATHS = [os.path.join(PATH_TO_TEST_IMAGES_DIR, 'image{}.jpg'.format(i)) for i in range(1, 3)]
 
     # Size, in inches, of the output images.
-    IMAGE_SIZE = (12, 8)
+    # IMAGE_SIZE = (12, 8)
 
     with detection_graph.as_default():
         with tf.Session(graph=detection_graph) as sess:
@@ -107,5 +108,6 @@ def get_objects(image_path):
                 category_index,
                 use_normalized_coordinates=True,
                 line_thickness=8)
-            plt.figure(figsize=IMAGE_SIZE)
-            plt.imshow(image_np)
+            # plt.figure(figsize=IMAGE_SIZE)
+            # plt.imshow(image_np)
+            return [num_detections, boxes, scores, classes, image_np]
