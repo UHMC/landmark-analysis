@@ -27,6 +27,8 @@ sudo apt install protobuf-compiler -y
 # compile the protobuf libraries and add to python path
 protoc object_detection/protos/*.proto --python_out=.
 export PYTHONPATH=$PYTHONPATH:$(pwd):$(pwd)/slim
+# add __init__.py to models directory to allow imports in odapi_adapter.py from root directory
+touch __init__.py
 # run tests
 python object_detection/builders/model_builder_test.py
 # run object_detection_tutorial (commented out for only dependency setup)

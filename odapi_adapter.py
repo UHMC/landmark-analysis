@@ -9,9 +9,10 @@ import numpy as np
 import six.moves.urllib as urllib
 import tensorflow as tf
 from PIL import Image
+
 # Object Detection Imports
-from utils import label_map_util
-from utils import visualization_utils as vis_util
+from models.object_detection.utils import label_map_util
+from models.object_detection.utils import visualization_utils as vis_util
 
 # Environment setup
 # This is needed to display the images.
