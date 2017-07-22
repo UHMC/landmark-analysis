@@ -108,4 +108,12 @@ def get_objects(image_path):
                 line_thickness=8)
             # plt.figure(figsize=IMAGE_SIZE)
             # plt.imshow(image_np)
-            return [num_detections, boxes, scores, classes, image_np]
+            return [
+                num_detections,
+                boxes,
+                scores,
+                classes,
+                image_np,
+                categories,
+                category_index
+            ]
