@@ -3,14 +3,15 @@
 
 # Imports
 import os
-import sys
 import tarfile
 
 import numpy as np
 import six.moves.urllib as urllib
 import tensorflow as tf
 from PIL import Image
-from matplotlib import pyplot as plt
+# Object Detection Imports
+from utils import label_map_util
+from utils import visualization_utils as vis_util
 
 # Environment setup
 # This is needed to display the images.
@@ -18,10 +19,6 @@ from matplotlib import pyplot as plt
 # inline
 # This is needed since the notebook is stored in the object_detection folder.
 # sys.path.append("..")
-
-# Object Detection Imports
-from utils import label_map_util
-from utils import visualization_utils as vis_util
 
 # Variables (model to download)
 MODEL_NAME = 'ssd_mobilenet_v1_coco_11_06_2017'
