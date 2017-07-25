@@ -1,6 +1,16 @@
 #!/bin/bash
 # update before installs
 sudo apt update
+# MySQL installation
+sudo apt install mysql-server
+# set up database folders
+sudo mkdir /srv/ObjectDB
+sudo gpasswd -a $USER mysql
+mkdir /srv/ObjectDB/EXIF
+mkdir /srv/ObjectDB/unprocessed
+mkdir /srv/ObjectDB/processed
+sudo chown mysql:mysql -R /srv/ObjectDB/
+sudo chmod ug+rw -R /srv/ObjectDB/
 # get pip
 sudo apt install python-pip -y
 # set up python virtual environment
