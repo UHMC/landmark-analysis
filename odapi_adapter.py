@@ -3,6 +3,7 @@
 
 # Imports
 import os
+import sys
 import tarfile
 
 import numpy as np
@@ -10,16 +11,13 @@ import six.moves.urllib as urllib
 import tensorflow as tf
 from PIL import Image
 
+# Environment setup
+# This is needed to fix import error by label_map_util in subdirectory.
+sys.path.append("models")
+
 # Object Detection Imports
 from models.object_detection.utils import label_map_util
 from models.object_detection.utils import visualization_utils as vis_util
-
-# Environment setup
-# This is needed to display the images.
-# % matplotlib
-# inline
-# This is needed since the notebook is stored in the object_detection folder.
-# sys.path.append("..")
 
 # Variables (model to download)
 MODEL_NAME = 'ssd_mobilenet_v1_coco_11_06_2017'
