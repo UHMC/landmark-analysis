@@ -6,9 +6,9 @@ sudo apt install mysql-server
 # set up database folders
 sudo mkdir /srv/ObjectDB
 sudo gpasswd -a $USER mysql
-mkdir /srv/ObjectDB/EXIF
-mkdir /srv/ObjectDB/unprocessed
-mkdir /srv/ObjectDB/processed
+sudo mkdir /srv/ObjectDB/EXIF
+sudo mkdir /srv/ObjectDB/unprocessed
+sudo mkdir /srv/ObjectDB/processed
 sudo chown mysql:mysql -R /srv/ObjectDB/
 sudo chmod ug+rw -R /srv/ObjectDB/
 # get pip
