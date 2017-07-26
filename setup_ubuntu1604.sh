@@ -2,7 +2,9 @@
 # update before installs
 sudo apt update
 # MySQL installation
-sudo apt install mysql-server
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password toor'
+sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password toor'
+sudo apt-get -y install mysql-server
 # set up database folders
 sudo mkdir /srv/ObjectDB
 sudo gpasswd -a $USER mysql
