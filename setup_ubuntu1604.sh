@@ -5,11 +5,13 @@ sudo apt update
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password password toor'
 sudo debconf-set-selections <<< 'mysql-server mysql-server/root_password_again password toor'
 sudo apt-get -y install mysql-server
-# database creation
+# database creation and user addition
 mysql -u root -ptoor << EOF
 CREATE DATABASE ObjectDB
 USE ObjectDB
 CREATE TABLE images(id INT unsigned NOT NULL AUTO_INCREMENT, path VARCHAR(2048), exif TEXT, odapi_output TEXT, PRIMARY KEY (id));
+CREATE USER 'machine'@'localhost'IDENTIFIED BY 'learning'
+GRANT ALL PRIVILEGES ON *.* TO 'machine'@'localhost' WITH GRANT OPTION
 EOF
 # set up database folders
 sudo mkdir /srv/ObjectDB
