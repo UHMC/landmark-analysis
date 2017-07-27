@@ -5,6 +5,7 @@ import os
 import time
 import jsonpickle
 import uuid
+import odapi_adapter
 
 
 config = {
@@ -15,12 +16,10 @@ config = {
     'raise_on_warnings': True,
 }
 
-add_image = ("INSERT INTO image "
-             "(path,exif) "
-             "VALUES (%s, %s)")
+add_image = ("INSERT INTO images "
+             "(path,exif,odapi_output) "
+             "VALUES (%s, %s, %s)")
 
-
-data_image = ('NULL','NULL')
 
 # Connecting to the Database using config
 try:
@@ -45,13 +44,17 @@ while(True):
 			print('Processing file: '+x) 
 			f = open(x,'rb') # Open the file 
 			filename = uuid.uuid4().hex
-			os.system('mv '+x+' ../processed/'+filename) # Move file to processed folder
-			exif=jsonpickle.encode(exifread.process_file(f)) # Extract EXIF into JSON
+			odapi_output = jsonpickle.encode(odapi_adapter.get_objects(f.name)) # Extract odapi_output into JSON
+			exif = jsonpickle.encode(exifread.process_file(f)) # Extract EXIF into JSON
+			os.system('mv '+ x+ ' ../processed/'+filename) # Move file to processed folder
 			os.chdir('/srv/ObjectDB/EXIF')
-			with open(filename+".json", 'wb') as output:
-				output.write(bytes(exif,'UTF-8'))
+			with open(filename+"-exif.json", 'wb') as output: # Dump EXIF into /srv/ObjectDB/EXIF
+				output.write(exif)
+			os.chdir('/srv/ObjectDB/odapi_output')
+			with open(filename+"-odapi_output.json", 'wb') as output: # Dump ODAPI output into /srv/Object/odapi_output
+				output.write(odapi_output)
 				os.chdir('/srv/ObjectDB/unprocessed')
-			data_image = ('/srv/ObjectDB/sorted/'+filename,'/srv/ObjectDB/EXIF/'+filename+'.json') # Information to be added to the database
+			data_image = ('/srv/ObjectDB/sorted/'+filename,'/srv/ObjectDB/EXIF/'+filename+'-exif.json','/srv/ObjectDB/odapi_output/'+filename+'-odapi_output.json') # Information to be added to the database
 			cursor.execute( add_image, data_image) # Add item to the database
 			db.commit() # Commit changes to database
 	time.sleep(1)

@@ -21,6 +21,7 @@ EOF
 sudo mkdir /srv/ObjectDB
 sudo gpasswd -a $USER mysql
 sudo mkdir /srv/ObjectDB/EXIF
+sudo mkdir /srv/ObjectDB/odapi_output
 sudo mkdir /srv/ObjectDB/unprocessed
 sudo mkdir /srv/ObjectDB/processed
 sudo chown mysql:mysql -R /srv/ObjectDB/
