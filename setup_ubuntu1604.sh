@@ -68,3 +68,9 @@ python object_detection/builders/model_builder_test.py
 
 # run object_detection_tutorial (commented out for only dependency setup)
 #jupyter notebook object_detection/object_detection_tutorial.ipynb
+
+# change directory back to project root
+cd ..
+
+# start scanner (to be inherited by init)
+(python image_strip.py &)
