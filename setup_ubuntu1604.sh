@@ -51,6 +51,8 @@ sudo apt install git -y
 
 # clone tensorflow/models repository
 git clone https://github.com/tensorflow/models.git
+
+# change directory into models repository
 cd models
 
 # get protobuf compiler
