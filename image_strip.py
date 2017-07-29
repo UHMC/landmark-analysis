@@ -59,4 +59,3 @@ while(True):
 			db.commit() # Commit changes to database
 	time.sleep(1)
 	print('Waiting for files...')
-
