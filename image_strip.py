@@ -54,7 +54,7 @@ while(True):
 			with open(filename+"-odapi_output.json", 'wb') as output: # Dump ODAPI output into /srv/ObjectDB/odapi_output
 				output.write(odapi_output)
 			os.chdir('/srv/ObjectDB/unprocessed')
-			data_image = ('/srv/ObjectDB/sorted/'+filename,'/srv/ObjectDB/EXIF/'+filename+'-exif.json','/srv/ObjectDB/odapi_output/'+filename+'-odapi_output.json') # Information to be added to the database
+			data_image = ('/srv/ObjectDB/processed/'+filename,'/srv/ObjectDB/EXIF/'+filename+'-exif.json','/srv/ObjectDB/odapi_output/'+filename+'-odapi_output.json') # Information to be added to the database
 			cursor.execute( add_image, data_image) # Add item to the database
 			db.commit() # Commit changes to database
 	time.sleep(1)
