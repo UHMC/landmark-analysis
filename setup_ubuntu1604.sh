@@ -13,6 +13,7 @@ mysql -u root -ptoor << EOF
 CREATE DATABASE ObjectDB;
 USE ObjectDB;
 CREATE TABLE images(id INT unsigned NOT NULL AUTO_INCREMENT, path VARCHAR(2048), exif TEXT, odapi_output TEXT, PRIMARY KEY (id));
+CREATE TABLE objects(id INT unsigned NOT NULL AUTO_INCREMENT, analysis TEXT, PRIMARY KEY (id));
 CREATE USER 'machine'@'localhost'IDENTIFIED BY 'learning';
 GRANT ALL PRIVILEGES ON *.* TO 'machine'@'localhost' WITH GRANT OPTION;
 EOF
