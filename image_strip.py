@@ -7,6 +7,7 @@ import jsonpickle
 import uuid
 import odapi_adapter
 
+RUN_ANALYSIS='./bin/python default_analysis.py'
 
 config = {
     'user': 'machine',
@@ -57,5 +58,6 @@ while(True):
 			data_image = ('/srv/ObjectDB/processed/'+filename,'/srv/ObjectDB/EXIF/'+filename+'-exif.json','/srv/ObjectDB/odapi_output/'+filename+'-odapi_output.json') # Information to be added to the database
 			cursor.execute( add_image, data_image) # Add item to the database
 			db.commit() # Commit changes to database
+	os.system(RUN_ANALYSIS)
 	time.sleep(1)
 	print('Waiting for files...')
