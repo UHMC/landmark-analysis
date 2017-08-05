@@ -22,6 +22,9 @@ except mysql.connector.Error as err:
     else:
         print(err)
 
+# Create a cursor for MySQL commands
+cursor = db.cursor()
+
 # Iterate through odapi_output
 #   Analysis 1
 #   Analysis 2
