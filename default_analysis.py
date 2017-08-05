@@ -10,3 +10,9 @@ config = {
     'database': 'ObjectDB',
     'raise_on_warnings': True,
 }
+
+# Connect to ObjectDB
+# Iterate through odapi_output
+#   Analysis 1
+#   Analysis 2
+#   ...
