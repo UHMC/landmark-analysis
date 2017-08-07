@@ -3,6 +3,8 @@
 # Consolidate information about individual objects into JSON files in objects table.
 
 import os
+import mysql.connector
+from mysql.connector import errorcode
 
 # ObjectDB Configuration
 config = {
