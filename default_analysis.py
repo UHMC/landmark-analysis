@@ -2,6 +2,8 @@
 # Identify different objects by some relevant common factor.
 # Consolidate information about individual objects into JSON files in objects table.
 
+import os
+
 # ObjectDB Configuration
 config = {
     'user': 'machine',
@@ -21,6 +23,9 @@ except mysql.connector.Error as err:
         print("Database does not exist")
     else:
         print(err)
+
+# Change directory to database folder (/srv/ObjectDB)
+os.chdir('/srv/ObjectDB')
 
 # Create a cursor for MySQL commands
 cursor = db.cursor()
