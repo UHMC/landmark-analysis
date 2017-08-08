@@ -5,6 +5,7 @@
 import os
 import mysql.connector
 from mysql.connector import errorcode
+import jsonpickle
 
 # ObjectDB Configuration
 config = {
@@ -36,3 +37,12 @@ cursor = db.cursor()
 #   Analysis 1
 #   Analysis 2
 #   ...
+odapi_output_filenames=[] # To be populated through database magic.
+# Extract all data into an array (does not scale well, but we're pressed for time).
+odapi_data_array=[]
+os.chdir('/srv/ObjectDB/odapi_output')
+for filename in odapi_output_filenames:
+    odapi_file=open(filename,'rb')
+    odapi_data=jsonpickle.decode(odapi_file.read())
+    odapi_file.close()
+    odapi_data_array.append(odapi_data)
