@@ -46,3 +46,14 @@ for filename in odapi_output_filenames:
     odapi_data=jsonpickle.decode(odapi_file.read())
     odapi_file.close()
     odapi_data_array.append(odapi_data)
+# Loop through odapi_data_array and populate object_array
+object_array=[]
+# For reference, odapi_adapter.get_objects(filepath) returns: [
+#   num_detections,
+#   boxes,
+#   scores,
+#   classes,
+#   image_np,
+#   categories,
+#   category_index
+# ]
