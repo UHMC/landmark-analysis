@@ -106,12 +106,17 @@ def get_objects(image_path):
                 line_thickness=8)
             # plt.figure(figsize=IMAGE_SIZE)
             # plt.imshow(image_np)
-            return [
-                num_detections,
-                boxes,
-                scores,
-                classes,
+
+            # image_np: uint8 numpy array with shape (img_height, img_width, 3)
+            # boxes: a numpy array of shape [N, 4]
+            # classes: a numpy array of shape [N]
+            # scores: a numpy array of shape [N] or None.
+            # category_index: a dict containing category dictionaries (each holding
+            #   category index `id` and category name `name`) keyed by category indices.
+            return (
                 image_np,
-                categories,
+                np.squeeze(boxes),
+                np.squeeze(classes).astype(np.int32),
+                np.squeeze(scores),
                 category_index
-            ]
+            )

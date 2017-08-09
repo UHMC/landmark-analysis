@@ -57,3 +57,11 @@ object_array=[]
 #   categories,
 #   category_index
 # ]
+for odapi_data in odapi_data_array:
+    # image_np: uint8 numpy array with shape (img_height, img_width, 3)
+    # boxes: a numpy array of shape [N, 4]
+    # classes: a numpy array of shape [N]
+    # scores: a numpy array of shape [N] or None.
+    # category_index: a dict containing category dictionaries (each holding
+    #   category index `id` and category name `name`) keyed by category indices.
+    pass
