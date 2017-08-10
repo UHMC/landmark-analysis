@@ -30,9 +30,6 @@ except mysql.connector.Error as err:
     else:
         print(err)
 
-# Change directory to database folder (/srv/ObjectDB)
-os.chdir('/srv/ObjectDB')
-
 # Create a cursor for MySQL commands
 cursor = db.cursor()
 
