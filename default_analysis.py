@@ -2,6 +2,7 @@
 # Identify different objects by some relevant common factor.
 # Consolidate information about individual objects into JSON files in objects table.
 
+from __future__ import print_function
 import os
 import mysql.connector
 from mysql.connector import errorcode
@@ -64,4 +65,12 @@ for odapi_data in odapi_data_array:
     # scores: a numpy array of shape [N] or None.
     # category_index: a dict containing category dictionaries (each holding
     #   category index `id` and category name `name`) keyed by category indices.
-    pass
+    for i in range(odapi_data[1].shape[0]):
+        score=odapi_data[3][i]
+        if score>.5:
+            name_text = 'name: {}'.format(odapi_data[4][odapi_data[2][i]]['name'])
+            score_text='score: {}%'.format(int(100*score))
+            object_array.append((name_text,score_text))
+
+# Print output
+print(object_array)
