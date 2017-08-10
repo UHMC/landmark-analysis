@@ -39,6 +39,12 @@ cursor = db.cursor()
 #   Analysis 2
 #   ...
 odapi_output_filenames=[] # To be populated through database magic.
+
+# Database magic
+cursor.execute('SELECT path FROM images')
+for row in cursor:
+    odapi_output_filenames.append(str(row[0]))
+
 # Extract all data into an array (does not scale well, but we're pressed for time).
 odapi_data_array=[]
 os.chdir('/srv/ObjectDB/odapi_output')
