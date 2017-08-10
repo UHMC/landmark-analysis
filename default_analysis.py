@@ -41,7 +41,7 @@ cursor = db.cursor()
 odapi_output_filenames=[] # To be populated through database magic.
 
 # Database magic
-cursor.execute('SELECT path FROM images')
+cursor.execute('SELECT odapi_output FROM images')
 for row in cursor:
     odapi_output_filenames.append(str(row[0]))
 
