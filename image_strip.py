@@ -3,7 +3,7 @@ from mysql.connector import errorcode
 import exifread
 import os
 import time
-import jsonpickle
+import pickle
 import uuid
 import odapi_adapter
 
@@ -45,8 +45,8 @@ while(True):
 			print('Processing file: '+x) 
 			f = open(x,'rb') # Open the file 
 			filename = uuid.uuid4().hex
-			odapi_output = jsonpickle.encode(odapi_adapter.get_objects(f.name)) # Extract odapi_output into JSON
-			exif = jsonpickle.encode(exifread.process_file(f)) # Extract EXIF into JSON
+			odapi_output = pickle.dumps(odapi_adapter.get_objects(f.name)) # Extract odapi_output into JSON
+			exif = pickle.dumps(exifread.process_file(f)) # Extract EXIF into JSON
 			os.system('mv '+ x+ ' ../processed/'+filename) # Move file to processed folder
 			os.chdir('/srv/ObjectDB/EXIF')
 			with open(filename+"-exif.json", 'wb') as output: # Dump EXIF into /srv/ObjectDB/EXIF

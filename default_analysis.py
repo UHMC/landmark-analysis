@@ -6,7 +6,7 @@ from __future__ import print_function
 import os
 import mysql.connector
 from mysql.connector import errorcode
-import jsonpickle
+import pickle
 
 SUFFICIENT_SCORE_THRESHOLD=0.5
 
@@ -49,7 +49,7 @@ os.chdir('/srv/ObjectDB/odapi_output')
 object_dict={}
 for filename in odapi_output_filenames:
     odapi_file=open(filename,'rb')
-    odapi_data=jsonpickle.decode(odapi_file.read())
+    odapi_data=pickle.load(odapi_file)
     odapi_file.close()
     # Populate object_dict.
     # odapi_data is a tuple containing:
