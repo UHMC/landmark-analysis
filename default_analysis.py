@@ -70,6 +70,7 @@ for filename in odapi_output_filenames:
                 object_dict[name]=[name, [score], [filename]]
 
 # Actual analysis
+demo_container=[]
 for name in object_dict:
     obj=object_dict[name]
     # For each object:
@@ -80,7 +81,10 @@ for name in object_dict:
     #   - simple mean of percent match scores across database
     mean_score=sum(obj[1])/float(len(obj[1]))
     # Put these in the database and file system ^
-    pass
+
+    # Demo container for demo display
+    demo_container.append((name,num_images,num_appearances,mean_score))
 
 # Print output
 print(object_dict)
+print(demo_container)
