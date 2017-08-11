@@ -23,6 +23,7 @@ config = {
 # Connect to ObjectDB
 try:
     db = mysql.connector.connect(**config)
+    db.autocommit = True
 except mysql.connector.Error as err:
     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
         print("Something is wrong with your user name or password")
