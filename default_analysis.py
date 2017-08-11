@@ -23,6 +23,7 @@ config = {
 # Connect to ObjectDB
 try:
     db = mysql.connector.connect(**config)
+    # Set autocommit to true, otherwise database connection will be stale 
     db.autocommit = True
 except mysql.connector.Error as err:
     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
@@ -56,12 +57,9 @@ known_entry = 0
 
 # Find number of the last entry in the database
 cursor.execute("SELECT id FROM images ORDER BY id DESC LIMIT 1")
-last_entry = int(cursor.fetchall()[0][0])
+last_entry = int(cursor.fetchone()[0])
 
 while(True):
-    # DEBUGGING
-    print("DEBUG: last_entry = {} | known_entry = {}".format(last_entry, known_entry))
-
     # Run the for loops if the known entry does not match the last entry  (database updated)
     if (last_entry != known_entry):
         # Become aware of the last entry in the database
@@ -109,5 +107,5 @@ while(True):
         print(object_dict)
     # Refresh the last entry from database
     cursor.execute("SELECT id FROM images ORDER BY id DESC LIMIT 1")
-    last_entry = int(cursor.fetchall()[0][0])
+    last_entry = int(cursor.fetchone()[0])
     time.sleep(3)
