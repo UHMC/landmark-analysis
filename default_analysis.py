@@ -109,6 +109,7 @@ while (True):
             }
             analysis_file = open(uuid.uuid4().hex + '-analysis.pickle', 'wb')
             pickle.dump(analysis_output, analysis_file)
+            cursor.execute("INSERT INTO objects (analysis) VALUE (\""+analysis_file.name+"\");")
             analysis_file.close()
         # Print output
         print(object_dict)
