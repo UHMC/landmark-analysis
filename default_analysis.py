@@ -8,6 +8,7 @@ import mysql.connector
 from mysql.connector import errorcode
 import pickle
 import time
+import uuid
 
 SUFFICIENT_SCORE_THRESHOLD=0.5
 
@@ -86,7 +87,8 @@ while(True):
                     else:
                         object_dict[name]=[name, [score], [filename]]
 
-            # Actual analysis
+        # Actual analysis
+        os.chdir('/srv/ObjectDB/analysis')
         for name in object_dict:
             obj=object_dict[name]
             # For each object:
@@ -103,6 +105,9 @@ while(True):
                 "num_appearances":num_appearances,
                 "mean_score":mean_score
             }
+            analysis_file = open(uuid.uuid4().hex + '-analysis.pickle', 'wb')
+            pickle.dump(analysis_output, analysis_file)
+            analysis_file.close()
         # Print output
         print(object_dict)
     # Refresh the last entry from database
