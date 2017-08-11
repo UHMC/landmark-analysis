@@ -55,7 +55,7 @@ known_entry = 0
 
 # Find number of the last entry in the database
 cursor.execute("SELECT id FROM images ORDER BY id DESC LIMIT 1")
-last_entry = int(cursor.fetchone()[0])
+#last_entry = int(cursor.fetchone()[0])
 print(cursor.fetchall())
 
 
@@ -110,6 +110,6 @@ while(True):
         print(object_dict)
     # Refresh the last entry from database
     cursor.execute("SELECT id FROM images ORDER BY id DESC LIMIT 1")
-    last_entry = int(cursor.fetchone()[0])
+    #last_entry = int(cursor.fetchone()[0])
     print(cursor.fetchall())
     time.sleep(3)
