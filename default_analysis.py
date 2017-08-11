@@ -80,7 +80,12 @@ for name in object_dict:
     #   - simple mean of percent match scores across database
     mean_score=sum(obj[1])/float(len(obj[1]))
     # Put these in the database and file system ^
-    pass
+    analysis_output={
+        name:obj,
+        "num_images":num_images,
+        "num_appearances":num_appearances,
+        "mean_score":mean_score
+    }
 
 # Print output
 print(object_dict)
