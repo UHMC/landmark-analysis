@@ -64,6 +64,8 @@ while(True):
 
     # Run the for loops if the known entry does not match the last entry  (database updated)
     if (last_entry != known_entry):
+        # Become aware of the last entry in the database
+        known_entry = last_entry
         for filename in odapi_output_filenames:
             odapi_file=open(filename,'rb')
             odapi_data=pickle.load(odapi_file)
@@ -103,10 +105,8 @@ while(True):
                 "num_appearances":num_appearances,
                 "mean_score":mean_score
             }
-                # Print output
+        # Print output
         print(object_dict)
-        # Become aware of the last entry in the database
-        known_entry = last_entry
     # Refresh the last entry from database
     cursor.execute("SELECT id FROM images ORDER BY id DESC LIMIT 1")
     last_entry = int(cursor.fetchone()[0])
