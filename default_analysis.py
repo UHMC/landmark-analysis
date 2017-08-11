@@ -60,7 +60,7 @@ last_entry = int(cursor.fetchone()[0])
 
 while(True):
     # DEBUGGING
-    print("DEBUG: last_entry = %s | known_entry = %s", last_entry, known_entry)
+    print("DEBUG: last_entry = {} | known_entry = {}".format(last_entry, known_entry))
 
     # Run the for loops if the known entry does not match the last entry  (database updated)
     if (last_entry != known_entry):
