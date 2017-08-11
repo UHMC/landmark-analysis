@@ -29,6 +29,8 @@ The setup script will create a folder structure used by the database and the ong
 All folders will be owned by the mysql usergroup and the current user will be added to the `mysql` group.
 #### Visual diagram
 ![Project Schema](/Resources/diagram.png?raw=true)
+#### Screenshots
+![What's the difference](/Resources/screenshot1.png)
 #### Credits
 * [Google's TensorFlow Object Detection API](https://github.com/tensorflow/models/tree/master/object_detection)
   * "Speed/accuracy trade-offs for modern convolutional object detectors."
