@@ -63,7 +63,7 @@ for filename in odapi_output_filenames:
         score=odapi_data[3][i]
         if score>=SUFFICIENT_SCORE_THRESHOLD:
             name=odapi_data[4][odapi_data[2][i]]['name']
-            if object_dict.has_key(name):
+            if name in object_dict:
                 object_dict[name][1].append(score)
                 object_dict[name][2].append(filename)
             else:
