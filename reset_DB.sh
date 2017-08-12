@@ -5,5 +5,6 @@ rm -rf /srv/ObjectDB/EXIF/*
 rm -rf /srv/ObjectDB/odapi_output/*
 mysql -u machine -plearning << EOF
 USE ObjectDB
-TRUNCATE images
+TRUNCATE images;
+TRUNCATE objects
 EOF
