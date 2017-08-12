@@ -106,8 +106,8 @@ while (True):
             pickle.dump(analysis_output, analysis_file)
             cursor.execute("INSERT INTO objects (analysis) VALUE (\""+analysis_file.name+"\");")
             analysis_file.close()
-        # Print output
-        print(object_dict)
+            # Print output
+            print(analysis_output)
     # Refresh the last entry from database
     cursor.execute("SELECT id FROM images ORDER BY id DESC LIMIT 1")
     last_entry = int(cursor.fetchone()[0])
