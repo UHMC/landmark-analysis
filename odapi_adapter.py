@@ -65,16 +65,6 @@ def load_image_into_numpy_array(image):
 
 def get_objects(image_path):
     # Detection
-    # For the sake of simplicity we will use only 2 images:
-    # image1.jpg
-    # image2.jpg
-    # If you want to test the code with your images, just add path to the images to the TEST_IMAGE_PATHS.
-    # PATH_TO_TEST_IMAGES_DIR = 'test_images'
-    # TEST_IMAGE_PATHS = [os.path.join(PATH_TO_TEST_IMAGES_DIR, 'image{}.jpg'.format(i)) for i in range(1, 3)]
-
-    # Size, in inches, of the output images.
-    # IMAGE_SIZE = (12, 8)
-
     with detection_graph.as_default():
         with tf.Session(graph=detection_graph) as sess:
             image = Image.open(image_path)
@@ -95,18 +85,6 @@ def get_objects(image_path):
             (boxes, scores, classes, num_detections) = sess.run(
                 [boxes, scores, classes, num_detections],
                 feed_dict={image_tensor: image_np_expanded})
-            # Visualization of the results of a detection.
-            vis_util.visualize_boxes_and_labels_on_image_array(
-                image_np,
-                np.squeeze(boxes),
-                np.squeeze(classes).astype(np.int32),
-                np.squeeze(scores),
-                category_index,
-                use_normalized_coordinates=True,
-                line_thickness=8)
-            # plt.figure(figsize=IMAGE_SIZE)
-            # plt.imshow(image_np)
-
             # image_np: uint8 numpy array with shape (img_height, img_width, 3)
             # boxes: a numpy array of shape [N, 4]
             # classes: a numpy array of shape [N]
