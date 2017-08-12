@@ -18,7 +18,7 @@ The setup script should take care of any dependencies automatically; however, it
   * `mysql-connector=2.1.4`
   * `jsonpickle`
   * `exifread`
-#### File hierarchy
+#### File Hierarchy
 The setup script will create a folder structure used by the database and the ongoing processesing scripts.
 * /srv/ObjectDB
   * /EXIF
@@ -27,7 +27,7 @@ The setup script will create a folder structure used by the database and the ong
   * /processed
 
 All folders will be owned by the mysql usergroup and the current user will be added to the `mysql` group.
-#### Visual diagram
+#### Visual Diagram
 ![Project Schema](/Resources/diagram.png?raw=true)
 #### Screenshots
 ![What's the difference](/Resources/screenshot1.png)
