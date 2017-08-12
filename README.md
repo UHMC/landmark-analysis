@@ -4,7 +4,7 @@ This project’s aim is to conceptualize and implement an open-source, simple, a
 #### System Requirements
 * [Ubuntu Linux ver. 16.04](https://www.ubuntu.com/download/desktop)
 #### Dependencies
-The setup script will take care of any dependencies automatically, however, it should be noted that these packages will be installed on your system.
+The setup script should take care of any dependencies automatically; however, it should be noted that these packages will be installed on your system if all goes well:
 * `mysql-server`
 * `git` (if not installed already)
 * `protobuf-compiler`
