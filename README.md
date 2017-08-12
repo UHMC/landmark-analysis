@@ -19,7 +19,7 @@ The setup script should take care of any dependencies automatically; however, it
   * `jsonpickle`
   * `exifread`
 #### File Hierarchy
-The setup script will create a folder structure used by the database and the ongoing processesing scripts.
+The setup script will create a folder structure used by the database and the ongoing processing scripts.
 * /srv/ObjectDB
   * /EXIF
   * /odapi_output
