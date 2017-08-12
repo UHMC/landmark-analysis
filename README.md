@@ -32,7 +32,7 @@ All folders are owned by the mysql usergroup, and the current user at setup time
 #### Screenshots
 ![What's the difference](/Resources/screenshot1.png)
 #### Credits
-* [Google's TensorFlow Object Detection API](https://github.com/tensorflow/models/tree/master/object_detection)
+* [TensorFlow Object Detection API](https://github.com/tensorflow/models/tree/master/object_detection)
   * "Speed/accuracy trade-offs for modern convolutional object detectors."
 Huang J, Rathod V, Sun C, Zhu M, Korattikara A, Fathi A, Fischer I, Wojna Z,
 Song Y, Guadarrama S, Murphy K, CVPR 2017
