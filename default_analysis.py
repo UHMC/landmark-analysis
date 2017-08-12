@@ -1,6 +1,6 @@
-# Read EXIF and ODAPI output from images table.
-# Identify different objects by some relevant common factor.
-# Consolidate information about individual objects into JSON files in objects table.
+# Read EXIF and ODAPI output from images table and folder.
+# Identify different objects by kind (name).
+# Consolidate information about individual objects into pickled dictionaries (link in objects table).
 
 from __future__ import print_function
 
@@ -39,10 +39,6 @@ except mysql.connector.Error as err:
 # Create a cursor for MySQL commands
 cursor = db.cursor()
 
-# Iterate through odapi_output
-#   Analysis 1
-#   Analysis 2
-#   ...
 odapi_output_filenames = []  # To be populated through database magic.
 
 # Database magic
@@ -50,7 +46,6 @@ cursor.execute('SELECT odapi_output FROM images')
 for row in cursor:
     odapi_output_filenames.append(str(row[0]))
 
-# Extract all objects with sufficient scores into an array.
 os.chdir('/srv/ObjectDB/odapi_output')
 object_dict = {}
 
