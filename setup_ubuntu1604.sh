@@ -76,5 +76,6 @@ python object_detection/builders/model_builder_test.py
 # change directory back to project root
 cd ..
 
-# start scanner (to be inherited by init)
+# start the beast (to be inherited by init)
 (python image_strip.py &)
+(python default_analysis &)
