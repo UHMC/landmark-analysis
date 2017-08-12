@@ -1,6 +1,6 @@
 # object-analysis
 #### Introduction
-This project’s aim is to conceptualize and implement an open-source, simple, and extensible framework for continuous image analysis utilizing TensorFlow’s Object Detection Application Programming Interface.
+This project’s aim is to conceptualize and implement an open-source, simple, and extensible framework for continuous image analysis using the [TensorFlow Object Detection API](https://github.com/tensorflow/models/tree/master/object_detection).
 #### System Requirements
 * Ubuntu Linux ver. 16.04
 #### Dependencies
