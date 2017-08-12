@@ -19,14 +19,14 @@ The setup script should take care of any dependencies automatically; however, it
   * `jsonpickle`
   * `exifread`
 #### File Hierarchy
-The setup script will create a folder structure used by the database and the ongoing processing scripts.
+The setup script will create the following folder structure used by the database and the ongoing processing scripts:
 * /srv/ObjectDB
   * /EXIF
   * /odapi_output
   * /unprocessed
   * /processed
 
-All folders will be owned by the mysql usergroup and the current user will be added to the `mysql` group.
+All folders are owned by the mysql usergroup, and the current user at setup time will be added to the `mysql` group.
 #### Visual Diagram
 ![Project Schema](/Resources/diagram.png?raw=true)
 #### Screenshots
