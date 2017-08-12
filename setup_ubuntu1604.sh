@@ -78,4 +78,4 @@ cd ..
 
 # start the beast (to be inherited by init)
 (python image_strip.py &)
-(python default_analysis &)
+(python default_analysis.py &)
