@@ -1,6 +1,6 @@
-# Read EXIF and ODAPI output from images table and folder.
+# Read ODAPI output from images table and folder.
 # Identify different objects by kind (name).
-# Consolidate information about individual objects into pickled dictionaries (link in objects table).
+# Consolidate information about individual objects into pickled dictionaries (link in objects table of database).
 
 from __future__ import print_function
 
