@@ -5,28 +5,30 @@ This project’s aim is to conceptualize and implement an open-source, simple, a
 * [Ubuntu Linux ver. 16.04](https://www.ubuntu.com/download/desktop)
 #### Dependencies
 The setup script should take care of any dependencies automatically; however, it should be noted that these packages will be installed on your system if all goes well:
-* `mysql-server`
-* `git` (if not installed already)
-* `protobuf-compiler`
-* `python-pip`
-  * `tensorflow`
-  * `pillow`
-  * `lxml`
-  * `jupyter`
-  * `matplotlib`
-  * `ipython`
-  * `mysql-connector=2.1.4`
-  * `jsonpickle`
-  * `exifread`
-#### File Hierarchy
-The setup script will create the following folder structure used by the database and the ongoing processing scripts:
-* /srv/ObjectDB
-  * /EXIF
-  * /odapi_output
-  * /unprocessed
-  * /processed
+ * `mysql-server`
+ * `git` (if not installed already)
+ * `protobuf-compiler`
+ * `python-pip`
+   * `tensorflow`
+   * `pillow`
+   * `lxml`
+   * `jupyter`
+   * `matplotlib`
+   * `ipython`
+   * `mysql-connector=2.1.4`
+   * `jsonpickle`
+   * `exifread`
 
-All folders are owned by the mysql usergroup, and the current user at setup time will be added to the `mysql` group.
+ #### File Hierarchy
+The setup script will create the following folder structure used by the database and the ongoing processing scripts:
+ * /srv/ObjectDB
+   * /EXIF
+   * /odapi_output
+   * /unprocessed
+   * /processed
+
+  All folders are owned by the mysql usergroup, and the current user at setup time will be added to the `mysql` group.
+
 #### Visual Diagram
 ![Project Schema](/Resources/diagram.png?raw=true)
 #### Screenshots
