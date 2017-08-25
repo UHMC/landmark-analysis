@@ -55,7 +55,8 @@ known_entry = 0
 
 # Find number of the last entry in the database
 cursor.execute("SELECT id FROM images ORDER BY id DESC LIMIT 1")
-last_entry = int(cursor.fetchone()[0])
+result=cursor.fetchone()
+if result is not None: last_entry=int(result[0])
 
 while (True):
     # Run the for loops if the known entry does not match the last entry  (database updated)
@@ -110,5 +111,6 @@ while (True):
             print(analysis_output)
     # Refresh the last entry from database
     cursor.execute("SELECT id FROM images ORDER BY id DESC LIMIT 1")
-    last_entry = int(cursor.fetchone()[0])
+    result=cursor.fetchone()
+    if result is not None: last_entry=int(result[0])
     time.sleep(3)
