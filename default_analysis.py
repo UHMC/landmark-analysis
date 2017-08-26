@@ -26,7 +26,7 @@ config = {
 # Connect to ObjectDB
 try:
     db = mysql.connector.connect(**config)
-    # Set autocommit to true, otherwise database connection will be stale 
+    # Set autocommit to true, otherwise database connection will be stale
     db.autocommit = True
 except mysql.connector.Error as err:
     if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
