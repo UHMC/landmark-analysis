@@ -46,6 +46,7 @@ The setup script will create the following folder structure used by the database
 ![Project Schema](/Resources/diagram.png?raw=true)
 #### Screenshots
 ![Screenshot](/Resources/screenshot2.png)
+![Output](/Resources/screenshot3.png)
 #### Credits
 * [TensorFlow Object Detection API](https://github.com/tensorflow/models/tree/master/object_detection)
   * "Speed/accuracy trade-offs for modern convolutional object detectors."
