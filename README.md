@@ -40,6 +40,7 @@ The setup script will create the following folder structure used by the database
     `$ ./setup_ubuntu1604.sh`
  5. Add demo images to unprocessed folder:  
     `$ cp Resources/demo-images/* /srv/ObjectDB/unprocessed/`
+ 6. Wait.
 
 #### Visual Diagram
 ![Project Schema](/Resources/diagram.png?raw=true)
